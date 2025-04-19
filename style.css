@@ -1,0 +1,87 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  body {
+    background-color: #5a4fcf;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .box {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 320px;
+  }
+  
+  .box h2 {
+    margin-bottom: 1rem;
+  }
+  
+  .box p {
+    margin: 1rem 0 0.5rem;
+    font-weight: 500;
+  }
+  
+  .sections,
+  .number-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  
+  .option {
+    padding: 10px 16px;
+    border: 2px solid #dcdcdc;
+    border-radius: 8px;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .option.number{
+    padding: 8px 12px;
+    min-width: 45px;
+  }
+  
+  .option:hover {
+    border-color: #a0a0a0;
+  }
+  
+  .option.selected {
+    background-color: #c3bfff;
+    border-color: #a08eff;
+    color: #333;
+  }
+  
+  .start-btn {
+    background-color: #5a4fcf;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .start-btn:hover {
+    background-color: #493ec4;
+  }
+  
