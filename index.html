@@ -5,51 +5,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quiz Configuration</title>
   <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Small, accessible quiz app using Open Trivia DB. Keyboard shortcuts: 1-4 to choose, Enter to submit.">
 </head>
 <body>
   <!-- Category screen -->
-    <div class="category-wrapper">
-      <div class="category-box">
-        <h2>Quiz Configuration</h2>
+    <main class="category-wrapper" id="start-screen">
+      <div class="category-box" role="region" aria-labelledby="cfg-title">
+        <h2 id="cfg-title">Quiz Configuration</h2>
+        <p class="muted">Choose a category and press <strong>Start Quiz</strong>. You can also press keys <code>1</code>–<code>4</code> to select answers and <code>Enter</code> to submit.</p>
         <p>Select Category</p>
-        <div class="category">
-          <button class="option" id="P">Programming</button>
-          <button class="option" id="G">Geography</button>
-          <button class="option" id="M">Mathematics</button>
-          <button class="option" id="E">Entertainment</button>
+        <div class="category" role="radiogroup" aria-label="Quiz categories">
+          <button class="option" id="P" role="radio" aria-checked="false">Programming</button>
+          <button class="option" id="G" role="radio" aria-checked="false">Geography</button>
+          <button class="option" id="M" role="radio" aria-checked="false">Mathematics</button>
+          <button class="option" id="E" role="radio" aria-checked="false">Entertainment</button>
         </div>
-        <button class="start-btn">Start Quiz</button>
-      </div> 
-  </div>
+        <div style="display:flex;gap:10px;justify-content:center;margin-top:12px;">
+          <button class="start-btn" aria-label="Start quiz">Start Quiz</button>
+          <button class="start-btn" id="howto" aria-haspopup="dialog">How to play</button>
+        </div>
+      </div>
+  </main>
 
     <!-- questions screen -->
   
-    <div class="quiz-screen" style="display: none;">
+    <section class="quiz-screen" aria-hidden="true" style="display: none;">
       <div class = "wrapper">
         <div class = "quiz-container">
             <div class = "quiz-head">
                 <h1 class = "quiz-title">Quiz Game</h1>
-                <div class = "quiz-score flex">
-                    <span id = "correct-score"></span>/<span id = "total-question"></span>
+                <div class = "quiz-meta" style="display:flex;align-items:center;gap:12px;justify-content:center;">
+                  <div class = "quiz-score flex" aria-live="polite">
+                      <span id = "correct-score">0</span>/<span id = "total-question">10</span>
+                  </div>
+                  <div class="progress-wrap" style="width:160px;position:relative;">
+                    <div id="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" style="height:8px;background:#eee;border-radius:999px;overflow:hidden;">
+                      <div id="progress-bar" style="height:100%;width:0%;background:linear-gradient(90deg,#7a5af5,#c3bfff);"></div>
+                    </div>
+                  </div>
+                  <div id="timer" class="timer" aria-live="polite" style="min-width:48px;text-align:center;font-weight:700;color:#fff;background:#5a3fd2;padding:6px 8px;border-radius:8px;">15s</div>
+                  <button id="mute-toggle" aria-pressed="false" title="Toggle sound" style="margin-left:8px;border:none;background:transparent;color:#fff;font-size:18px;cursor:pointer">🔊</button>
                 </div>
             </div>
             <div class = "quiz-body">
-                <h2 class = "quiz-question" id = "question"><!--What is the full form of HTTP? --></h2>
-                <ul class = "quiz-options">
-                    <li>1. Hyper text transfer package</li>
-                    <li>2. Hyper text transfer protocol</li>
-                    <li>3. Hyphenation text test program</li>
-                    <li>4. None of the above</li>
-                </ul>
-                <div id = "result">
-                </div>
+              <h2 class = "quiz-question" id = "question" aria-live="polite"><!--What is the full form of HTTP? --></h2>
+              <ul class = "quiz-options" role="list">
+                <li role="listitem">1. Hyper text transfer package</li>
+                <li role="listitem">2. Hyper text transfer protocol</li>
+                <li role="listitem">3. Hyphenation text test program</li>
+                <li role="listitem">4. None of the above</li>
+              </ul>
+              <div id = "result" aria-live="assertive"></div>
             </div>
             <div class = "quiz-foot">
                 <button type = "button" id = "check-answer">Check Answer</button>
                 <button type = "button" id = "play-again">Play Again!</button>
             </div>
         </div>
-    </div>
+    </section>
+
+  <!-- Help dialog -->
+  <div id="howto-dialog" role="dialog" aria-modal="true" aria-hidden="true" style="display:none;position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);background:var(--light-color);padding:1rem;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.2);max-width:360px;">
+    <h3 style="margin-top:0">How to play</h3>
+    <p class="muted">Each question has a 15s timer. Use number keys <strong>1</strong>–<strong>4</strong> to pick an option, or Tab to focus and Enter to select. Click <em>Check Answer</em> or press Enter to submit.</p>
+    <div style="text-align:right;margin-top:8px"><button id="close-howto">Close</button></div>
+  </div>
     </div>
 
 

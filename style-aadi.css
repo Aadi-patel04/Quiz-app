@@ -1,0 +1,311 @@
+/* ==========================
+   🌈 ENHANCED QUIZ UI STYLE
+   ========================== */
+
+/* 🌟 Global Variables */
+:root {
+  --primary-color: #7a5af5;
+  --primary-dark: #5a3fd2;
+  --accent-color: #c3bfff;
+  --light-color: #ffffff;
+  --dark-color: #1e1e2f;
+  --grey-color: #f5f5f5;
+  --shadow-color: rgba(0, 0, 0, 0.15);
+  --transition: all 0.3s ease;
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --border-radius: 1rem;
+  --blur: 15px;
+}
+
+/* Reset + Base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #10022b, #3d1c85);
+  color: var(--dark-color);
+  transition: var(--transition);
+}
+
+/* Quiz Active Background */
+body.quiz-active {
+  background: linear-gradient(135deg, #2c065d, #6f3bea);
+}
+
+/* ==========================
+   📦 Category Screen
+   ========================== */
+.category-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.wrapper{
+  background-color: #851c1c;
+}
+
+.quiz-container{
+  background-color: #970608;
+}
+.category-box {
+  background: var(--glass-bg);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  width: 340px;
+  text-align: center;
+  backdrop-filter: blur(var(--blur));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 25px var(--shadow-color);
+  color: var(--light-color);
+  animation: fadeIn 0.6s ease-in;
+}
+
+.category-box h2 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.category-box p {
+  margin: 1rem 0 0.5rem;
+  font-weight: 500;
+}
+
+.category,
+.number-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.option {
+  padding: 10px 16px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  cursor: pointer;
+  transition: var(--transition);
+  backdrop-filter: blur(4px);
+}
+
+.option:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.option.selected {
+  background: var(--accent-color);
+  color: var(--dark-color);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 12px var(--accent-color);
+}
+
+.start-btn {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.start-btn:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+/* ==========================
+   🧩 Quiz Wrapper
+   ========================== */
+.wrapper {
+  background: var(--light-color);
+  border-radius: var(--border-radius);
+  box-shadow: 0 6px 18px var(--shadow-color);
+  padding: 2rem;
+  width: 420px;
+  animation: fadeUp 0.5s ease;
+  text-align: center;
+}
+
+.quiz-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+}
+
+.quiz-score {
+  text-align: right;
+  font-weight: 700;
+  font-size: 1rem;
+  margin: 0 auto 1rem auto;
+  width: 80px;
+  height: 40px;
+  border-radius: 8px;
+  border: 2px solid var(--grey-color);
+  color: var(--primary-dark);
+  background: var(--grey-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quiz-question {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.quiz-question .category {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.3rem;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+/* Options */
+.quiz-options {
+  list-style-type: none;
+  margin: 1rem 0;
+  padding: 0;
+}
+
+.quiz-options li {
+  border-radius: 0.5rem;
+  font-weight: 600;
+  margin: 0.7rem 0;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  border: 2px solid var(--primary-color);
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  box-shadow: 0 4px 0 0 #5d3ebc;
+  transition: var(--transition);
+}
+
+.quiz-options li:hover {
+  background-color: var(--accent-color);
+  color: var(--dark-color);
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+}
+
+.quiz-options li:active {
+  transform: scale(0.97);
+}
+
+/* Selected Answer */
+.selected {
+  background-color: var(--accent-color) !important;
+  color: var(--dark-color) !important;
+  border-color: var(--accent-color) !important;
+  box-shadow: 0 4px 0 0 #bbbbbb !important;
+}
+
+/* Footer Buttons */
+.quiz-foot button {
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  margin: 1rem auto 0;
+  cursor: pointer;
+  background-color: var(--grey-color);
+  color: var(--dark-color);
+  letter-spacing: 1px;
+  transition: var(--transition);
+  box-shadow: 0 4px 0 0 #bbbbbb;
+}
+
+.quiz-foot button:hover {
+  background-color: #e6e6e6;
+  transform: translateY(-2px);
+}
+
+.quiz-foot button:active {
+  transform: scale(0.95);
+}
+
+/* Result */
+#result {
+  padding: 0.7rem 0;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--primary-dark);
+}
+
+#result i {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  line-height: 30px;
+  margin-right: 0.5rem;
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  display: inline-block;
+}
+
+/* ==========================
+   📱 Responsive
+   ========================== */
+@media (max-width: 678px) {
+  .wrapper {
+    width: 90%;
+    padding: 1.2rem;
+  }
+
+  .quiz-title {
+    font-size: 1.4rem;
+  }
+
+  .quiz-foot button {
+    font-size: 0.9rem;
+  }
+}
+
+/* ==========================
+   ✨ Animations
+   ========================== */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
